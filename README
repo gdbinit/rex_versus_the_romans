@@ -1,0 +1,18 @@
+Rex versus The Romans
+Anti Hacking Team Kernel Extension
+reverser@put.as - http://reverse.put.as
+
+This is a OS X TrustedBSD module to detect Hacking Team's OS X malware
+in already infected systems or to warn if system is compromised by their dropper.
+
+It assumes that the malware is written to /Users/username/Library/Preferences.
+This assumption has been true in the past but unknown in the future.
+
+The code is very simple and needs further improvements to be future proof to any
+changes they might do. I do have that secret sauce but it's implemented in a 
+commercial product. 
+
+You are encouraged to improve on this code! Please tell me about it if you do.
+
+Enjoy,
+fG!
