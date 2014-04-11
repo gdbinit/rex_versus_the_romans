@@ -12,6 +12,12 @@ The code is very simple and needs further improvements to be future proof to any
 changes they might do. I do have that secret sauce but it's implemented in a 
 commercial product. 
 
+Because there is no userland daemon to receive and process the alerts, the
+deprecated KUNCUserNotificationDisplayNotice is used to display the alert.
+The downside of this is that this module uses the Unsupported KPI.
+It can be fixed by creating a userland daemon that receives and processes the
+messages from the kernel.
+
 You are encouraged to improve on this code! Please tell me about it if you do.
 
 Enjoy,
