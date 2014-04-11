@@ -126,6 +126,9 @@ rex_vnode_check_exec(kauth_cred_t cred,
             char alert_msg[1025] = {0};
             snprintf(alert_msg, sizeof(alert_msg), "Process \"%s\" with PID %d is executing from ~/Library/Preferences.\n This could be Hacking Team's malware!", path, target_pid);
             alert_msg[sizeof(alert_msg)-1] = '\0';
+
+            /* log to syslog */
+            printf("[WARNING] Process \"%s\" with PID %d is executing from ~/Library/Preferences.\n This could be Hacking Team's malware!", path, target_pid);
             /* deprecated but still usable to display the alert */
             KUNCUserNotificationDisplayNotice(10,		// Timeout
                                               0,		// Flags - default is Stop alert level
@@ -135,7 +138,6 @@ rex_vnode_check_exec(kauth_cred_t cred,
                                               "Security Alert", // alert header
                                               alert_msg, // alert message
                                               "OK");	// button title
-
         }
     }
     /* just watching... */

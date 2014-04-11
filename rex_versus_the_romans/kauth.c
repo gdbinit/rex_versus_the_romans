@@ -242,6 +242,9 @@ fileop_scope_listener(kauth_cred_t    credential,
                 char alert_msg[1025] = {0};
                 snprintf(alert_msg, sizeof(alert_msg), "Process \"%s\" wrote Mach-O binary %s.\n This could be Hacking Team's malware!", myprocname, file_path);
                 alert_msg[sizeof(alert_msg)-1] = '\0';
+                
+                /* log to syslog */
+                printf("[WARNING] Process \"%s\" wrote Mach-O binary %s.\n This could be Hacking Team's malware!", myprocname, file_path);
                 /* deprecated but still usable to display the alert */
                 KUNCUserNotificationDisplayNotice(10,		// Timeout
                                                   0,		// Flags - default is Stop alert level
@@ -251,7 +254,6 @@ fileop_scope_listener(kauth_cred_t    credential,
                                                   "Security Alert", // alert header
                                                   alert_msg, // alert message
                                                   "OK");	// button title
-
             }
         }
     }
