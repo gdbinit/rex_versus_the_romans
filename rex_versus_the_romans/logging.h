@@ -53,7 +53,7 @@
 
 #include <libkern/libkern.h>
 
-#if DEBUG == NO
+#if DEBUG == 0
 
 #define DEBUG_MSG(fmt, ...) do {} while (0)
 
@@ -63,7 +63,7 @@
 #define ERROR_MSG(fmt, ...) printf("[ERROR] " fmt "\n", ## __VA_ARGS__)
 #endif /* ERROR_LOGGING */
 
-#else /* DEBUG == YES */
+#else /* DEBUG == 1 */
 
 #define DEBUG_MSG(fmt, ...) printf("[DEBUG] " fmt "\n", ##  __VA_ARGS__)
 #define ERROR_MSG(fmt, ...) printf("[ERROR] " fmt " (%s, %d)\n", ## __VA_ARGS__, __func__, __LINE__)
