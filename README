@@ -20,5 +20,20 @@ messages from the kernel.
 
 You are encouraged to improve on this code! Please tell me about it if you do.
 
+If you want to get this module loaded on startup you can use a simple trick.
+Modify the kext plist and add this key:
+<key>AppleSecurityExtension</key>
+<true/>
+
+The CFBundleIdentifier must also be modified and start with com.apple.XXXXX.
+
+Now copy the kext to /System/Library/Extensions and touch that same folder.
+Reboot and the kext will be automatically loaded on boot.
+
+This method doesn't work with Yosemite because of strict codesigning requests.
+You can't sign anymore com.apple with a non-Apple certificate.
+
+Of course you need a kext codesigning certificate for this to work with Mavericks!
+
 Enjoy,
 fG!
